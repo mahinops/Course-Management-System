@@ -20,8 +20,7 @@
                 <td>{{ result.student }}</td>
                 <td>{{ result.course }}</td>
                 <td>{{ result.result }}</td>
-                <td><a href="/result/edit/{{ result.id }}">Edit</a></td>
-
+                <td><a href="{% url 'edit_result' result.id %}">Edit</a></td>
             </tr>
         {% endfor %}
         </tbody>

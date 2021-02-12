@@ -23,3 +23,16 @@ def index(request):
     }
 
     return render(request, 'course/index.html', context)
+
+def edit(request, id):
+    edit_data = CourseForm(request.POST)
+    if edit_data.is_valid():
+        edit_data.save()
+        return redirect('/course/index')
+
+    context = {
+        'edit_data': edit_data
+    }
+
+
+    return render(request, 'course/edit.html', context)

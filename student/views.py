@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import StudentForm
 from .models import Student
 
@@ -22,3 +22,16 @@ def index(request):
     }
 
     return  render(request, 'student/index.html', context)
+
+def edit(request, id):
+    edit_data = StudentForm(request.POST)
+    if edit_data.is_valid():
+        edit_data.save()
+        return redirect('/student/index')
+
+    context = {
+        'edit_data': edit_data
+    }
+
+
+    return render(request, 'student/edit.html', context)

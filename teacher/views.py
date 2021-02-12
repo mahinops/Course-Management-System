@@ -27,8 +27,14 @@ def index(request):
 
 
 def edit(request, id):
-    index = Teacher.objects.get(id=id)
+    edit_data = TeacherForm(request.POST)
+    if edit_data.is_valid():
+        edit_data.save()
+        return redirect('/teacher/index')
+
     context = {
-        'index': index
+        'edit_data': edit_data
     }
+
+
     return render(request, 'teacher/edit.html', context)

@@ -17,7 +17,7 @@
             <tr>
                 <td>{{ notice.title }}</td>
                 <td>{{ notice.notice_by }}</td>
-                <td><a href="#">Click Here</a></td>
+                <td><a href="{% url 'view_detail' notice.id %}">Click Here</a></td>
             </tr>
         {% endfor %}
         </tbody>

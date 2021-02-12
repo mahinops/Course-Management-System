@@ -21,7 +21,7 @@
                 <td>{{ teacher.department }}</td>
                 <td>{{ teacher.designation }}</td>
                 <td>{{ teacher.email }}</td>
-                <td><a href="/teacher/edit/{{ teacher.id }}">Edit</a></td>
+                <td><a href="{% url 'edit_teacher' teacher.id %}">Edit</a></td>
             </tr>
         {% endfor %}
         </tbody>
