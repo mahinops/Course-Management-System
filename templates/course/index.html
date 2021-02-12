@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="dropdown-divider"></div> <br><br>
+
+<div class="bs-example">
+    <table class="table text-center">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Teacher</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for course in index %}
+            <tr>
+                <td>{{ course.name }}</td>
+                <td>{{ course.code }}</td>
+                <td>{{ course.teacher }}</td>
+
+                <td><a href="/course/edit/{{ course.id }}">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

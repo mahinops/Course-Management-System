@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+    <div class="dropdown-divider"></div> <br><br>
+<div class="container">
+<h2 class="bg-dark text-white">Add Course</h2>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ add.as_p }}
+            <input  type="submit" value="Save">
+        </form>
+    </div>
+</div>
+{% endblock %}
