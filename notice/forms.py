@@ -1,6 +1,7 @@
 from django import forms
 from .models import Notice
 
+
 class NoticeForm(forms.ModelForm):
     class Meta:
         model = Notice
@@ -8,5 +9,6 @@ class NoticeForm(forms.ModelForm):
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Title'}),
+            'description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Description'}),
             'notice_by': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Teacher Name'})
         }
