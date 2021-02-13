@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <div class="dropdown-divider"></div> <br><br>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="post">
+
+                    <h2><a href="">{{ detail.title }}</a></h2>
+                    <p>{{ detail.description|linebreaks }}</p>
+                </div>
+                <div class="date">
+                    <p>Notice By: {{ detail.notice_by }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
