@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'notice',
     'teacher',
     'result',
-    'student'
+    'student',
+    'dashboard'
 ]
 
 MIDDLEWARE = [

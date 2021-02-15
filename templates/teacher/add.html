@@ -6,6 +6,7 @@
 
 <div class="container">
 <h2 class="bg-dark text-white">Add Teacher</h2>
+    {% if user.groups.all.0.name == 'teacher' %}
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
@@ -13,5 +14,6 @@
             <input type="submit" value="Save">
         </form>
     </div>
+    {% endif %}
 </div>
 {% endblock %}
