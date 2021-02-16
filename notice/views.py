@@ -3,7 +3,7 @@ from .forms import NoticeForm
 from .models import Notice
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def add(request):
     user = request.user
     add = NoticeForm(request.POST or None)
@@ -19,7 +19,7 @@ def add(request):
 
     return render(request, 'notice/add.html', context)
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def index(request):
     index = Notice.objects.all()
     context = {
@@ -28,7 +28,7 @@ def index(request):
 
     return render(request, 'notice/index.html', context)
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def view_detail(request, id):
     detail = Notice.objects.get(id=id)
     context = {

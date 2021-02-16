@@ -4,7 +4,7 @@ from .forms import UserForm
 import hashlib
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def dashboard(request):
     user = User.objects.all()
     # user =request.user
@@ -14,8 +14,9 @@ def dashboard(request):
     return render(request, 'dashboard/dashboard.html', context)
 
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def add(request):
+    user = request.user
     add = UserForm(request.POST or None)
 
     if add.is_valid():
@@ -28,10 +29,11 @@ def add(request):
         user.save()
         my_group = Group.objects.get(name=add.cleaned_data['groups'].first().name)
         my_group.user_set.add(user)
-        return redirect('/dashboard')
+        return redirect('/home')
 
     context = {
-        'add': add
+        'add': add,
+        'user': user,
     }
 
     return render(request, 'dashboard/add.html', context)

@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Permission, _user_has_perm
 
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def add(request):
     user = request.user
     # if user.groups.name == 'teacher':
@@ -22,7 +22,7 @@ def add(request):
     }
     return render(request, 'course/add.html', context)
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def index(request):
     index = Course.objects.all()
     context = {
@@ -31,7 +31,7 @@ def index(request):
 
     return render(request, 'course/index.html', context)
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def edit(request, id):
     user = request.user
     edit_data = CourseForm(request.POST)

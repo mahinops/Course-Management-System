@@ -12,6 +12,7 @@ urlpatterns = [
     path('result/', include('result.urls')),
     path('notice/', include('notice.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('', include('django.contrib.auth.urls')),
 ]
 
 if settings.DEBUG:

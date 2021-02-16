@@ -4,7 +4,7 @@ from .models import Result
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def add(request):
     user = request.user
     add = ResultForm(request.POST or None)
@@ -21,7 +21,7 @@ def add(request):
     return render(request, 'result/add.html', context)
 
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def index(request):
     index = Result.objects.all()
     context = {
@@ -30,7 +30,7 @@ def index(request):
 
     return render(request, 'result/index.html', context)
 
-@login_required(login_url='/admin/login/?next=/admin/')
+@login_required(login_url='/')
 def edit(request, id):
     user = request.user
     edit_data = ResultForm(request.POST)
